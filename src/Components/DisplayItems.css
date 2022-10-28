@@ -1,0 +1,30 @@
+.display-div{
+    width: 96%;
+    margin: 20px 2%;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px 20px;
+}
+.item-box{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 10px 15px;
+}
+.crud{
+    padding-top: 15px;
+    display: flex;
+    gap: 5%;
+    font-size: 21px;
+}
+.crud .edit{
+    color: blueviolet;
+    cursor: pointer;
+}
+.crud .delete{
+    color: red;
+    cursor: pointer;
+}

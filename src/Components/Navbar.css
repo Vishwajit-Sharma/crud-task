@@ -1,0 +1,13 @@
+.nav-div{
+    width: 100%;
+    height: 70px;
+    padding: 20px 5% 20px 3%;
+    background-color: rgb(58, 56, 56);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.nav-div h3{
+    cursor: pointer;
+}

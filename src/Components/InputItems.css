@@ -1,0 +1,53 @@
+.input-div{
+    width: 50%;
+    border: 1px solid wheat;
+    background-color: rgb(252, 244, 230);
+    border-radius: 10px;
+    padding: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.input-div h1{
+    text-align: center;
+    color: blueviolet;
+}
+.form-div{
+    width: 100%;
+    padding: 20px;
+    /* display: flex;
+    flex-direction: column; */
+}
+.form-row1, .form-row3{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    padding: 10px 0;
+}
+.form-row2{
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 10px 0;
+}
+.form-row4{
+    width: 40%;
+    margin-left: 30%;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.form-row4 button{
+    outline: none;
+    border: 1px solid green;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.form-row4 button:hover{
+    background-color: green;
+    color: white;
+    transition: 500ms;
+}
