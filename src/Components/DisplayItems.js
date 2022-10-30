@@ -31,7 +31,7 @@ export default function DisplayItems(props){
         {   
             loading ? ("Loading ... "):
             items.map((item,index) => 
-            <div className='item-box' key={item.id}>
+            <div className='item-box' key={index}>
                 <h2>Name: {item.name}</h2>
                 <h3>Username: {item.username}</h3>
                 <h5>Email: {item.email}</h5>

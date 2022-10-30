@@ -18,14 +18,12 @@ const userSlice = createSlice({
             
         },
         userUpdate: (state, action) =>{
-            const {id, name, username, email, city, company} = action.payload
+            const {id, name, username, email} = action.payload
             const existingUser = state.items.find(user=>user.id===id)
             if(existingUser){
                 existingUser.name = name
                 existingUser.username = username
                 existingUser.email = email
-                existingUser.city = city
-                existingUser.company.name = company
             }
         },
         userDelete: (state, action) =>{

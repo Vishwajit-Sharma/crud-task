@@ -17,7 +17,7 @@ export default function EditItems(props) {
     const [email, setEmail] = useState(user.email)
     const [error, setError]= useState(null)
 
-    const handleClick = (e)=>{
+    const handleSubmit = (e)=>{
         e.preventDefault()
         if(name && username && email){
             dispatch(userUpdate({
@@ -39,7 +39,7 @@ export default function EditItems(props) {
   return (
     <div className='input-div'>
             <h1>Edit Records</h1>
-            <form action="">
+            <form action="" onSubmit={handleSubmit}>
                 <div className="form-div">
                     <div className="form-row1">
                         <TextField id="outlined-basic" label="Name" variant="outlined" color='secondary' value={name} onChange={(e)=>setName(e.target.value)} />
@@ -50,7 +50,7 @@ export default function EditItems(props) {
                     </div>
                     <div className="form-row4">
                         {error && error }
-                        <button type='submit' onClick={handleClick}>Save Data &nbsp; <FaRegAddressCard /></button>
+                        <button type='submit'>Save Data &nbsp; <FaRegAddressCard /></button>
                     </div>
                 </div>
             </form>
