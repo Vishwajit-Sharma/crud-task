@@ -1,31 +1,27 @@
 import React from 'react'
-import './InputItems.css'
 import TextField from '@mui/material/TextField';
 import { FaRegAddressCard } from "react-icons/fa";
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { userAdd } from '../Features/UserSlice';
+import { userUpdate } from '../Features/UserSlice';
 import { useState } from 'react';
 
+export default function EditItems(props) {
 
-export default function InputItems() {
-
+    const user = useSelector(state => state.users.items.find(user=>user.id===props.id))
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const [name, setName] = useState("")
-    const [username, setUsername] = useState("")
-    const [email, setEmail] = useState("")
+    const [name, setName] = useState(user.name)
+    const [username, setUsername] = useState(user.username)
+    const [email, setEmail] = useState(user.email)
     const [error, setError]= useState(null)
-
-    const totalUsers = useSelector(state=> state.users.items.length)
-
 
     const handleClick = (e)=>{
         e.preventDefault()
         if(name && username && email){
-            dispatch(userAdd({
-                id: totalUsers+1,
+            dispatch(userUpdate({
+                id: user.id,
                 name: name,
                 username: username,
                 email: email,
@@ -38,30 +34,26 @@ export default function InputItems() {
             setError(`Fill in all fields
             `)
         }
-
-        setName("")
-        setUsername("")
-        setEmail("")
     }
 
-    return (
-        <div className='input-div'>
-            <h1>Add Records</h1>
+  return (
+    <div className='input-div'>
+            <h1>Edit Records</h1>
             <form action="">
                 <div className="form-div">
                     <div className="form-row1">
-                        <TextField id="outlined-basic" label="Name" variant="outlined" color='secondary' value={name} onChange={(e)=>setName(e.target.value)}/>
+                        <TextField id="outlined-basic" label="Name" variant="outlined" color='secondary' value={name} onChange={(e)=>setName(e.target.value)} />
                         <TextField id="outlined-basic" label="Username" variant="outlined" color='secondary' value={username} onChange={(e)=>setUsername(e.target.value)} />
                     </div>
                     <div className="form-row2">
-                        <TextField id="outlined-basic" label="Email" variant="outlined" color='secondary' value={email} onChange={(e)=>setEmail(e.target.value)} />
+                        <TextField id="outlined-basic" label="Email" variant="outlined" color='secondary' value={email} onChange={(e)=>setEmail(e.target.value)}  />
                     </div>
                     <div className="form-row4">
                         {error && error }
-                        <button type='submit' onClick={handleClick}>Submit Data &nbsp; <FaRegAddressCard /></button>
+                        <button type='submit' onClick={handleClick}>Save Data &nbsp; <FaRegAddressCard /></button>
                     </div>
                 </div>
             </form>
         </div>
-    )
+  )
 }

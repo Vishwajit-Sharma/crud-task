@@ -11,3 +11,7 @@
 .nav-div h3{
     cursor: pointer;
 }
+.nav-button-div{
+    display: flex;
+    gap: 30px;
+}

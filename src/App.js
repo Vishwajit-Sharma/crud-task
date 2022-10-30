@@ -3,16 +3,20 @@ import DisplayItems from './Components/DisplayItems';
 import InputItems from './Components/InputItems';
 import Navbar from './Components/Navbar';
 import {Routes, Route} from 'react-router-dom'
+import EditItems from './Components/EditItems';
+import { useState } from 'react';
 
 function App() {
+  const [id, setId] = useState("")
   return (
-    <div className="App">
+    <>
       <Navbar/>
       <Routes>
-        <Route path='/' element={<DisplayItems/>}></Route>
+        <Route path='/' element={<DisplayItems id={id} setId={setId}/>}></Route>
         <Route path='/addItem' element={<InputItems/>}></Route>
+        <Route path={`/editItem/${id}`} element={<EditItems id={id}/>}></Route>
       </Routes>
-    </div>
+    </>
   );
 }
 
